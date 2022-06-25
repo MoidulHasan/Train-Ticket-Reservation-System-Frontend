@@ -1,15 +1,15 @@
 import { useState } from 'react';
 import './App.css';
 
-import contextProvider from "./context";
+import ContextProvider from "./context";
 import From from './pages/form';
 
 function App() {
 
   return (
-    <contextProvider>
+    <ContextProvider>
       <From />
-    </contextProvider>
+    </ContextProvider>
   );
 }
 

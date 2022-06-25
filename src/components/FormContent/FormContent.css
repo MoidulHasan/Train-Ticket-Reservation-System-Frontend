@@ -1,0 +1,25 @@
+.contentContainer {
+    /* padding-top: 3.62rem; */
+    padding-top: 5rem;
+    background-color: #EDF2F7;
+    height: 100vh;
+}
+
+.formDetails {
+    background-color: #ffffff;
+    width: 1440px;
+    height: 80vh;
+    border-radius: 10px;
+}
+
+.form-inputs {
+    width: 1440px;
+    padding: 30px;
+    height: 100%;
+}
+
+@media screen and (max-width: 1439px) {
+    .contentContainer {
+        width: 1540px;
+    }
+}

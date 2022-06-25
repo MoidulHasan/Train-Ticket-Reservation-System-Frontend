@@ -1,0 +1,6 @@
+.nav {
+    border-bottom: .1px solid #d4d1d1;
+    -moz-box-shadow: 0 4px 2px -2px #E6E6E6;
+    -webkit-box-shadow: 0 4px 2px -2px #E6E6E6;
+    box-shadow: 0 3px 2px -2px #E6E6E6;
+}

@@ -6,7 +6,7 @@
  */
 
 // Dependencies
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useFormData } from '../../../context';
 import PageNavigator from '../../pageNavigator';
 import Spinner from '../../spinner';
@@ -21,11 +21,19 @@ const FormResponse = ({ step, setStep }) => {
     const [response, setResponse] = useState();
 
 
+    const callEffect = useRef(true)
 
     useEffect(() => {
-        if (loading)
+
+        if (callEffect.current) {
+
+            callEffect.current = false;
             fetchData();
+            console.log('useEffect on FormSUbmit')
+        }
+
     }, []);
+
 
     const fetchData = () => {
 

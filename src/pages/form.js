@@ -6,7 +6,7 @@
  */
 
 // Dependencies
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Header from '../components/header'
 import FormContent from '../components/FormContent'
 import Spinner from '../components/spinner';
@@ -15,13 +15,14 @@ import { useFormData } from '../context';
 
 
 const Form = () => {
+    // get context api 
+    const { formData, setFormValues } = useFormData();
 
     // form states
     const [step, setStep] = useState(1);
     const [stepChange, setStepChange] = useState(false);
 
-    // get context api 
-    const { formData, setFormValues } = useFormData();
+
 
     // change stepChange state value
     const changeStepStatus = () => {
@@ -29,7 +30,14 @@ const Form = () => {
     }
 
     // call stepChangeStatus for making stepChange true on step change for render loader
-    useEffect(changeStepStatus, [step]);
+    const stepRender = useRef(true);
+
+    useEffect(() => {
+        if (stepRender.current) {
+            stepRender.current = false;
+            changeStepStatus();
+        }
+    }, [step]);
 
     // change stepChange state to false for removing loader and render current step after 1 second
     setTimeout(() => {

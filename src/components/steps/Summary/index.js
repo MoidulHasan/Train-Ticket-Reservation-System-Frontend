@@ -56,7 +56,6 @@ const Summary = ({ step, setStep }) => {
                 </div>
             </div >
             <PageNavigator step={step} setStep={setStep} />
-
         </form >
     );
 };

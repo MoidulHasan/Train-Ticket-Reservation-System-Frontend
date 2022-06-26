@@ -13,6 +13,7 @@ import DateTime from "../components/steps/DateTime";
 import PriceInfo from "../components/steps/PriceInfo";
 import Note from "../components/steps/Note";
 import Summary from "../components/steps/Summary";
+import FormResponse from "../components/steps/FormResponse";
 
 
 
@@ -98,6 +99,9 @@ utils.stepContent = (step, setStep) => {
         case 6:
             currentStep = <Summary step={step} setStep={setStep} />
             break;
+        case 7:
+            currentStep = <FormResponse step={step} setStep={setStep} />
+            break;
         default:
 
     }
@@ -141,18 +145,20 @@ utils.updateData = (watch, step, formData) => {
 // encrypt string
 utils.encrypt = (string) => {
     // encrypting String //
-    return CryptoJS.AES.encrypt(string, process.env.REACT_APP_SECRET).toString();
+    console.log("Secreate key: ", process.env.REACT_APP_SECRET_KEY)
+    return CryptoJS.AES.encrypt(string, process.env.REACT_APP_SECRET_KEY).toString();
 };
 
 // decrypt string
 utils.decrypt = (string) => {
-    const decrypted = CryptoJS.AES.decrypt(string, process.env.REACT_APP_SECRET);
+    const decrypted = CryptoJS.AES.decrypt(string, process.env.REACT_APP_SECRET_KEY);
 
     return decrypted.toString(CryptoJS.enc.Utf8);
 };
 
 // save form data to local storage on change
 utils.saveData = (formData) => {
+    console.log("save data called:: ", formData);
     localStorage.setItem('formData', utils.encrypt(JSON.stringify(formData)));
 }
 

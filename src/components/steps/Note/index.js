@@ -48,13 +48,18 @@ const Note = ({ step, setStep }) => {
     } = useForm({
         mode: "all",
         defaultValues: {
-            Note: text
+            Note: formData.Note ? formData.Note : text
         },
     });
 
     const onSubmit = (values) => {
 
         setFormValues(values);
+
+        // Save from data to local storage
+        const { saveData } = utils;
+        saveData({ ...formData, ...values });
+
         console.log('values form text: ', values);
         console.log('formData form text: ', formData);
         setStep((currentStep) => currentStep + 1);
@@ -65,7 +70,7 @@ const Note = ({ step, setStep }) => {
             <div className='mt-5'>
                 <div className='row d-flex justify-content-center'>
                     <div class="col-6  d-flex justify-content-between">
-                        <textarea className='form-control shadow-none position-relative' rows={10} defaultValue={text} {...register("Note", { required: true })} />
+                        <textarea className='form-control shadow-none position-relative' rows={10}  {...register("Note", { required: true })} />
                     </div>
                 </div>
             </div >

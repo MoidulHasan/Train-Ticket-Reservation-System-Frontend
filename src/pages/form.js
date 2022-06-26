@@ -9,7 +9,6 @@
 import React, { useEffect, useState } from 'react';
 import Header from '../components/header'
 import FormContent from '../components/FormContent'
-import PageNavigator from '../components/pageNavigator';
 import Spinner from '../components/spinner';
 import utils from '../utils/utils';
 import { useFormData } from '../context';
@@ -52,10 +51,11 @@ const Form = () => {
     // get form data from local storage if it is saved and set it to formData state
     useEffect(() => {
         if (localStorage.getItem('formData')) {
-            const formData = JSON.parse(decrypt(localStorage.getItem('formData')));
-            console.log("local form data111: ", formData);
-            if (formData) {
-                setFormValues(formData);
+            console.log(localStorage.getItem('formData'));
+            const formLocalData = JSON.parse(decrypt(localStorage.getItem('formData')));
+            console.log("local form formLocalData: ", formLocalData);
+            if (formLocalData) {
+                setFormValues(formLocalData);
             }
         }
     }, []);

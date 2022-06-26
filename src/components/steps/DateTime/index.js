@@ -13,11 +13,13 @@ import PageNavigator from '../../pageNavigator';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import './styles.css'
+import utils from '../../../utils/utils'
 
 
 const DateTime = ({ step, setStep }) => {
     const { formData, setFormValues } = useFormData();
 
+    console.log("formData from Date time: ", formData);
     // const [dateNow, setDateNow] = useState(new Date());
     // const [currentTime, setCurrentTime] = useState(new Date());
 
@@ -51,6 +53,12 @@ const DateTime = ({ step, setStep }) => {
         });
 
         setFormValues(values);
+
+
+        // Save from data to local storage
+        const { saveData } = utils;
+        saveData(formData);
+
         // console.log('values form Time: ', values);
         // console.log('formData form Time: ', formData);
         setStep((currentStep) => currentStep + 1);

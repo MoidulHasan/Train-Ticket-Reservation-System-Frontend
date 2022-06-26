@@ -45,6 +45,11 @@ const PriceInfo = ({ step, setStep }) => {
     const onSubmit = (values) => {
 
         setFormValues(values);
+
+        // Save from data to local storage
+        const { saveData } = utils;
+        saveData({ ...formData, ...values });
+
         console.log('values form PriceInfo: ', values);
         console.log('formData form Time: ', formData);
         setStep((currentStep) => currentStep + 1);

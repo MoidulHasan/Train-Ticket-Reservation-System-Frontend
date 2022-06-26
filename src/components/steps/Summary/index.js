@@ -19,16 +19,28 @@ const Summary = ({ step, setStep }) => {
 
     const { formData, setFormValues } = useFormData();
 
-    console.log(formData)
 
+    const {
+        handleSubmit,
+        formState: { errors },
+        register,
+        watch
+    } = useForm();
+
+    const onSubmit = (values) => {
+
+        setFormValues(values);
+        console.log('values form text: ', values);
+        console.log('formData form text: ', formData);
+        setStep((currentStep) => currentStep + 1);
+    };
 
 
     const { Name, Gender, From, To, Date, Time, Price, Note } = formData;
 
-    // Price = Math.floor((parseInt(Price) * 1.47));
 
     return (
-        <div className={'d-flex justify-content-between flex-column h-100'}>
+        <form onSubmit={handleSubmit(onSubmit)} className={'d-flex justify-content-between flex-column h-100'}>
             <div className='mt-5'>
                 <div className='row ps-5'>
                     <h6>Name: {Name}</h6>
@@ -45,7 +57,7 @@ const Summary = ({ step, setStep }) => {
             </div >
             <PageNavigator step={step} setStep={setStep} />
 
-        </div >
+        </form >
     );
 };
 

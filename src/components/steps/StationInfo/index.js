@@ -10,11 +10,12 @@ import React from 'react';
 import { useFormData } from '../../../context';
 import { useForm } from 'react-hook-form';
 import PageNavigator from '../../pageNavigator';
+import utils from '../../../utils/utils'
 
 
 const StationInfo = ({ step, setStep }) => {
     const { formData, setFormValues } = useFormData();
-
+    console.log('formData form destination: ', formData);
 
     const {
         handleSubmit,
@@ -31,6 +32,12 @@ const StationInfo = ({ step, setStep }) => {
 
     const onSubmit = (values) => {
         setFormValues(values);
+
+        // Save from data to local storage
+        const { saveData } = utils;
+        saveData({ ...formData, ...values });
+
+
         console.log('values form destination: ', values);
         setStep((currentStep) => currentStep + 1);
     };

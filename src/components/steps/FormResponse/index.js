@@ -44,7 +44,7 @@ const FormResponse = ({ step, setStep }) => {
             body: JSON.stringify(formData)
         };
 
-        fetch("http://localhost:3939/formsubmit", requestOptions)
+        fetch("https://ttrs-backend.herokuapp.com/formsubmit", requestOptions)
             .then((response) => response.json())
             .then((data) => {
                 if (data.status === 'success') localStorage.removeItem("formData");
@@ -63,7 +63,7 @@ const FormResponse = ({ step, setStep }) => {
             <div className='mt-5 ps-5 d-flex align-items-center justify-content-center'>
                 {loading ? <Spinner /> : <Response response={response ? response : {}} />}
             </div >
-            <PageNavigator step={step} setStep={setStep} />
+            <PageNavigator step={step} setStep={setStep} response={response ? response : {}} />
 
         </div >
     );

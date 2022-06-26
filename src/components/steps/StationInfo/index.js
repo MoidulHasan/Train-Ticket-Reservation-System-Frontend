@@ -38,7 +38,7 @@ const StationInfo = ({ step, setStep }) => {
         saveData({ ...formData, ...values });
 
 
-        console.log('values form destination: ', values);
+        //console.log('values form destination: ', values);
         setStep((currentStep) => currentStep + 1);
     };
 

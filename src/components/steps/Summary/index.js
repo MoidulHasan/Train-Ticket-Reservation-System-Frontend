@@ -30,8 +30,8 @@ const Summary = ({ step, setStep }) => {
     const onSubmit = (values) => {
 
         setFormValues(values);
-        console.log('values form text: ', values);
-        console.log('formData form text: ', formData);
+        //console.log('values form text: ', values);
+        //console.log('formData form text: ', formData);
         setStep((currentStep) => currentStep + 1);
     };
 

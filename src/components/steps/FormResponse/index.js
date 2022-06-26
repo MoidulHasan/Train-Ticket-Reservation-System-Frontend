@@ -29,7 +29,7 @@ const FormResponse = ({ step, setStep }) => {
 
             callEffect.current = false;
             fetchData();
-            console.log('useEffect on FormSUbmit')
+            //console.log('useEffect on FormSUbmit')
         }
 
     }, []);
@@ -47,11 +47,12 @@ const FormResponse = ({ step, setStep }) => {
         fetch("http://localhost:3939/formsubmit", requestOptions)
             .then((response) => response.json())
             .then((data) => {
+                if (data.status === 'success') localStorage.removeItem("formData");
                 setResponse(data);
                 setLoading(false);
             })
             .catch((error) => {
-                console.log(error);
+                //console.log(error);
                 setLoading(false);
             });
     };

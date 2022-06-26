@@ -60,8 +60,8 @@ const Note = ({ step, setStep }) => {
         const { saveData } = utils;
         saveData({ ...formData, ...values });
 
-        console.log('values form text: ', values);
-        console.log('formData form text: ', formData);
+        //console.log('values form text: ', values);
+        //console.log('formData form text: ', formData);
         setStep((currentStep) => currentStep + 1);
     };
 

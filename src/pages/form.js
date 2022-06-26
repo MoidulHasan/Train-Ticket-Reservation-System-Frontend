@@ -59,9 +59,9 @@ const Form = () => {
     // get form data from local storage if it is saved and set it to formData state
     useEffect(() => {
         if (localStorage.getItem('formData')) {
-            console.log(localStorage.getItem('formData'));
+            //console.log(localStorage.getItem('formData'));
             const formLocalData = JSON.parse(decrypt(localStorage.getItem('formData')));
-            console.log("local form formLocalData: ", formLocalData);
+            //console.log("local form formLocalData: ", formLocalData);
             if (formLocalData) {
                 setFormValues(formLocalData);
             }

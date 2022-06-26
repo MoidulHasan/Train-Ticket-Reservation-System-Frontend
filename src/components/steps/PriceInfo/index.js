@@ -50,8 +50,8 @@ const PriceInfo = ({ step, setStep }) => {
         const { saveData } = utils;
         saveData({ ...formData, ...values });
 
-        console.log('values form PriceInfo: ', values);
-        console.log('formData form Time: ', formData);
+        //console.log('values form PriceInfo: ', values);
+        //console.log('formData form Time: ', formData);
         setStep((currentStep) => currentStep + 1);
     };
 

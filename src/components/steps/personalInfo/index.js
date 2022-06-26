@@ -33,7 +33,7 @@ const PersonalInfo = ({ step, setStep }) => {
 
     const onSubmit = (values) => {
         setFormValues(values);
-        console.log(values);
+        //console.log(values);
 
 
         // Save from data to local storage
